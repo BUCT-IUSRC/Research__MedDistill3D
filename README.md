@@ -1,0 +1,45 @@
+# Research__MedDistill3D
+# MedDistill: Multi-Level Distilled Foundation-to-Lightweight Model Co-Learning for Unsupervised Medical Segmentation
+
+<font style="color:rgb(0,0,0);">Te Guo, Tianyu Shen*, </font> Kunfeng Wang*_<font style="color:rgb(0,0,0);">(*Corresponding authors)</font>_
+
+## Framework Overview
+<img width="1983" height="1040" alt="new-论文图" src="https://github.com/user-attachments/assets/473f0923-dd35-44f5-b932-b2e7dad32de3" />
+
+
+<font style="color:rgb(0,0,0);">The overall framework of MedDistill3D.  A large-scale visual foundation model serves as a teacher to generate high-quality masks and guide a lightweight student network.  During weakly supervised training, Multi-level knowledge distillation aligns intermediate features and transfers structural information, while 3D hierarchical enhanced distillation supervises pseudo-volumes to correct 2D discontinuities and improve 3D segmentation continuity.</font>
+
+## Install
+### Environment
+<font style="color:rgb(31, 35, 40);">The code is built with following libraries:</font>
+
++ <font style="color:rgb(31, 35, 40);">Python = 3.10</font>
++ <font style="color:rgb(31, 35, 40);">tensorflow = 2.19</font>
++ <font style="color:rgb(31, 35, 40);">h5py = 3.13</font>
++ <font style="color:rgb(31, 35, 40);">imageio = 2.37</font>
++ <font style="color:rgb(31, 35, 40);">keras = 3.10</font>
++ markdown = 3.5.1
++ <font style="color:rgb(31, 35, 40);">medpy = 0.5.2</font>
++ <font style="color:rgb(31, 35, 40);">nibabel = 5.3.2</font>
++ <font style="color:rgb(31, 35, 40);">opencv-python = 4.11</font>
++ <font style="color:rgb(31, 35, 40);">pandas =2.2.3</font>
++ <font style="color:rgb(31, 35, 40);">scikit-image = 0.25.2</font>
+
+### <font style="color:rgb(31, 35, 40);">Training</font>
+#### <font style="color:rgb(31, 35, 40);">1.Download Datasets</font>
+<font style="color:rgb(31, 35, 40);">You can download the </font><font style="color:rgb(0,0,0);">public</font><font style="color:rgb(31, 35, 40);"> datasets using the following links: </font>[https://www.kaggle.com/datasets/atikaakter11/brain-tumor-segmentation-dataset](https://www.kaggle.com/datasets/atikaakter11/brain-tumor-segmentation-dataset)
+#### <font style="color:rgb(31, 35, 40);">2.Data preprocessing</font>
+    --python Creat_yolodata.py --dataset 'p'
+#### <font style="color:rgb(31, 35, 40);">3.Box Generation </font><font style="color:rgb(0,0,0);">Sub-network</font>
+    --pyhton detection.py 
+#### <font style="color:rgb(0,0,0);">4.Distillation Sub-network</font>
+    --pyhton meddistill.py
+#### <font style="color:rgb(0,0,0);">5.Test
+    --python predict_eval.py \
+    --image_dir /root/autodl-tmp/p/1/test/images\
+    --mask_dir /root/autodl-tmp/p/1/testmasks \
+    --model_path sam2-unetpp-1.pth  \
+    --vis_dir vis_results
+### <font style="color:rgb(31, 35, 40);">Contact Us</font>
+<font style="color:rgb(31, 35, 40);">If you have any problem about this work, please feel free to reach us out at te.guo@buct.edu.cn</font>`
+
