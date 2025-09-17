@@ -4,7 +4,7 @@
 <font style="color:rgb(0,0,0);">Te Guo, Tianyu Shen*, </font> Kunfeng Wang*_<font style="color:rgb(0,0,0);">(*Corresponding authors)</font>_
 
 ## Framework Overview
-<img width="1983" height="1040" alt="new-论文图" src="https://github.com/user-attachments/assets/473f0923-dd35-44f5-b932-b2e7dad32de3" />
+<img width="2830" height="1532" alt="overrall" src="https://github.com/user-attachments/assets/f73451c8-aa0e-4175-9c50-63749e6dee5a" />
 
 
 <font style="color:rgb(0,0,0);">The overall framework of MedDistill3D.  A large-scale visual foundation model serves as a teacher to generate high-quality masks and guide a lightweight student network.  During weakly supervised training, Multi-level knowledge distillation aligns intermediate features and transfers structural information, while 3D hierarchical enhanced distillation supervises pseudo-volumes to correct 2D discontinuities and improve 3D segmentation continuity.</font>
@@ -27,19 +27,17 @@
 
 ### <font style="color:rgb(31, 35, 40);">Training</font>
 #### <font style="color:rgb(31, 35, 40);">1.Download Datasets</font>
-<font style="color:rgb(31, 35, 40);">You can download the </font><font style="color:rgb(0,0,0);">public</font><font style="color:rgb(31, 35, 40);"> datasets using the following links: </font>[https://www.kaggle.com/datasets/atikaakter11/brain-tumor-segmentation-dataset](https://www.kaggle.com/datasets/atikaakter11/brain-tumor-segmentation-dataset)
+<font style="color:rgb(31, 35, 40);">You can download the </font><font style="color:rgb(0,0,0);">public</font><font style="color:rgb(31, 35, 40);"> datasets using the following links: </font>
+
+[http://medicaldecathlon.com/](http://medicaldecathlon.com/)
 #### <font style="color:rgb(31, 35, 40);">2.Data preprocessing</font>
-    --python Creat_yolodata.py --dataset 'p'
-#### <font style="color:rgb(31, 35, 40);">3.Box Generation </font><font style="color:rgb(0,0,0);">Sub-network</font>
-    --pyhton detection.py 
-#### <font style="color:rgb(0,0,0);">4.Distillation Sub-network</font>
+    --python preprocessing.py 
+#### <font style="color:rgb(31, 35, 40);">3.Box Generation </font><font style="color:rgb(0,0,0);"></font>
+    --pyhton box.py 
+#### <font style="color:rgb(0,0,0);">4.Distillation network</font>
     --pyhton meddistill.py
 #### <font style="color:rgb(0,0,0);">5.Test
-    --python predict_eval.py \
-    --image_dir /root/autodl-tmp/p/1/test/images\
-    --mask_dir /root/autodl-tmp/p/1/testmasks \
-    --model_path sam2-unetpp-1.pth  \
-    --vis_dir vis_results
+    --python predict_eval.py 
 ### <font style="color:rgb(31, 35, 40);">Contact Us</font>
 <font style="color:rgb(31, 35, 40);">If you have any problem about this work, please feel free to reach us out at te.guo@buct.edu.cn</font>`
 
